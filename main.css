@@ -65,3 +65,132 @@
     bottom: 2px;
     width: 25px;
 }
+
+
+*{
+  margin: 5px;
+  box-sizing: border-box;
+}
+
+body{
+  margin: 5px;
+  padding: 50px;
+  font-weight: 500;
+}
+
+#container {
+  width: 1000px;
+  height: 1000px;
+  margin: 0 auto;
+}
+div.search {
+  padding: 50px 0;
+}
+form {
+  position: relative;
+  width: 500px;
+  margin: 0 auto;
+}
+
+input, button {
+  border: none;
+  outline: none;
+}
+
+input {
+  width: 100%;
+  height: 50px;
+  padding-left: 10px;
+}
+
+button {
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  position: absolute;
+}
+
+/* search button square */
+.bar {
+  background:#ffcd61;
+}
+.bar input {
+  border: 2px solid #F9F0DA;
+  border-radius: 5px;
+  background: #F9F0DA;
+  color: #9E9C9C;
+}
+.bar button {
+  top: 0;
+  right: 0;
+  background: #F15B42;
+  }
+.bar button:before {
+  content: "\e000";
+  font-size: 16px;
+  color: #F9F0DA;
+}
+
+
+
+.row {
+  margin-bottom: 30px;
+}
+
+.btn {
+  text-transform: uppercase;
+  padding: 20px 40px;
+  text-decoration: none;
+  letter-spacing: 1px;
+  display: inline-block;
+  color: #fff;
+}
+/* select button square */
+/* reverse color, two examples */
+.btn__outline--Vegetarian {
+  color:  #FF6666;
+  border: 2px solid #FF6666;
+  transition: all .3s;
+}
+.btn__outline--Vegetarian:hover {
+  background-color:  #FF6666;
+  color: #fff;
+}
+
+.btn__outline--Sandwiches {
+  color:  #ffcc33;
+  border: 2px solid#FFCC33;
+  transition: all .3s;
+}
+.btn__outline--Sandwiches:hover {
+  background-color:  #FFCC33;
+  color: #fff;
+}
+/* deep color, two examples */
+.btn__outline--Burgers {
+  background-color:  #FF6666;
+  color: #fff;
+  transition: all .3s;
+}
+.btn__outline--Burgers:hover {
+  background-color:  #FF3333;
+  color: #fff;
+}
+.btn__outline--Desserts {
+  background-color:  #FFCC33;
+  color: #fff;
+  transition: all .3s;
+}
+.btn__outline--Desserts:hover {
+  background-color:  #FF9933;
+  color: #fff;
+}
+.btn__outline--Barbecue {
+  background-color:  #FF6666;
+  color: #fff;
+  transition: all .3s;
+}
+/* round border style */
+.btn--round {
+  border-radius: 10px;
+}
