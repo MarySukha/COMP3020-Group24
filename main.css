@@ -1,3 +1,25 @@
 #count {
     display: inline;
 }
+
+#footer {
+    position: fixed;
+    width: 100%;
+    padding: 20px;
+    bottom: 0;
+    right: 0;
+    background-color: #ab0303;
+    display: flex;
+    justify-content: space-around;
+}
+
+#link {
+    color: #FCFC83;
+}
+
+#footer_logo {
+    position: fixed;
+    right: 15px;
+    bottom: 2px;
+    width: 25px;
+}
