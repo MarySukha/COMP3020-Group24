@@ -2,92 +2,53 @@
 <html lang="en-US">
 
 <head>
-    <script src="scripts.js"></script> 
-    <link rel="stylesheet" type="text/css" href="main.css"/>
-    <title>This is the tab text</title>
+  <script src="scripts.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Order Me Up</title>
 </head>
+
 <body>
-    <img src="https://i.imgur.com/KymmhdC.png" title="Order Me Up logo" id="logo">
-    <p>This is the window text!</p>
-    <div id="count">0</div>
-    <button 
-        type="button"
-        onclick="document.getElementById('count').innerHTML = increment()"
-    >+1</button>
-    
-    <div id="container">
-      <div class="search bar">
-          <form>
-              <input type="text" placeholder="Choose Your Cuisines or Styles...">
-              <button type="submit"></button>
-          </form>
-      </div>
-
-
-      <div class="row">
-          <a href="#" class="btn btn__outline--Vegetarian btn--round">Vegetarian</a>
-          <a href="#" class="btn btn__outline--Sandwiches btn--round">Sandwiches</a>
-          <a href="#" class="btn btn__outline--Burgers btn--round">Burgers</a>
-          <a href="#" class="btn btn__outline--Desserts btn--round">Desserts</a>
-          <a href="#" class="btn btn__outline--Barbecue btn--round">Barbec</a>
-      </div>
+  <div class="header">
+    <img id="header_image" src="./static/header background - Copy.jpg"/>
+  </div>
+  <div id="logo_container">
+    <img id="logo" src="https://i.imgur.com/KymmhdC.png" title="Order Me Up logo">
   </div>
 
-
-    
-    
-    <button id="myBtn">Popup</button>
-<div id="myModal" class="modal">
-<div class="modal-content">
-<span class="close">&times;</span>
- <p>HELLO THERE!!</p>
- </div>
-</div>
-
-<script>
-
-var modal = document.getElementById("myModal");
-
-var btn = document.getElementById("myBtn");
-
-var span = document.getElementsByClassName("close")[0];
-
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-</script>
-
-    
-    
-    <div id="footer">
-        <a id="link" 
-        href="https://github.com/MarySukha/COMP3020-Group24"
-        target="_blank"
-        >Contact Us</a>
-        <a id="link"
-        href="https://github.com/MarySukha/COMP3020-Group24"
-        target="_blank"
-        >Careers</a>
-        <a id="link"
-        href="https://github.com/MarySukha/COMP3020-Group24"
-        target="_blank"
-        >FAQ</a>
-        <a id="link"
-        href="https://github.com/MarySukha/COMP3020-Group24"
-        target="_blank"
-        >Delivery Policy</a>
-        <img id="footer_logo" src="./static/pink_balloon.png"/>
+  <div id="container">
+    <div class="bar">
+      <form>
+        <input type="text" placeholder="Search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
     </div>
+
+    <div class="row" onload="select_buttons()">
+      <a href="#" class="btn btn__outline--Vegetarian btn--round">Vegetarian</a>
+      <a href="#" class="btn btn__outline--Sandwiches btn--round">Sandwiches</a>
+      <a href="#" class="btn btn__outline--Burgers btn--round">Burgers</a>
+      <a href="#" class="btn btn__outline--Desserts btn--round">Desserts</a>
+      <a href="#" class="btn btn__outline--Barbecue btn--round">Barbecue</a>
+      <a href="#" class="btn btn__outline--Sushi btn--round">Sushi</a>
+  </div>
+
+  <button id="myBtn">Popup</button>
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>HELLO THERE!!</p>
+    </div>
+  </div>
+
+  <div id="footer">
+    <a id="link" href="https://github.com/MarySukha/COMP3020-Group24" target="_blank">Contact Us</a>
+    <a id="link" href="https://github.com/MarySukha/COMP3020-Group24" target="_blank">Careers</a>
+    <a id="link" href="https://github.com/MarySukha/COMP3020-Group24" target="_blank">FAQ</a>
+    <a id="link" href="https://github.com/MarySukha/COMP3020-Group24" target="_blank">Delivery Policy</a>
+    <img id="footer_logo" src="./static/order_me_up_logo_small.png" />
+  </div>
 </body>
+
 </html>
