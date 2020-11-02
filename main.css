@@ -2,6 +2,12 @@
     display: inline;
 }
 
+#logo{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
 #footer {
     position: fixed;
     width: 100%;
