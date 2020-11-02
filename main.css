@@ -1,7 +1,13 @@
 #count {
     display: inline;
 }
+#logo{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
 
+=======
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -38,9 +44,6 @@
   text-decoration: none;
   cursor: pointer;
 }
-
-
-
 
 #footer {
     position: fixed;
