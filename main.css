@@ -58,7 +58,7 @@ body{
   border-radius: 5px;
   width: 50%; /* Could be more or less, depending on screen size */
   height: 85%;
-  padding: 0;
+  padding: 15px;
 }
 
 /* Customization Menu */
@@ -99,15 +99,15 @@ input[type="checkbox"]{
 /* End Modal */
 
 /* The Close Button */
-.close {
+.close, .menuClose {
   color: #aaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
   margin-right: 5px;
 }
-.close:hover,
-.close:focus {
+.close:hover, .menuClose:hover,
+.close:focus, .menuClose:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
@@ -185,3 +185,21 @@ input[type="checkbox"]{
   color: #fff;
 }
 /* End Selection Buttons */
+
+/*Menu*/
+.item{
+  display: flex;
+  align-items: center;
+  padding: -20px;
+}
+.resize{
+  width: 100px;
+}
+.caption{
+  padding: 15px;
+}
+#fullMenu{
+  width: 99%;
+  height: 85%;
+  overflow-y: scroll;
+}
