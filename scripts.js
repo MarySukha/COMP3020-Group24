@@ -54,8 +54,11 @@ function selection_buttons() {
 
 window.onload = function(){
   let modal = document.getElementById("myModal");
+  let menuModal = document.getElementById("menuModal");
   let btn = document.getElementById("myBtn");
+  let menuBtn = document.getElementById("menuBtn");
   let close = document.getElementsByClassName("close")[0];
+  let menuClose = document.getElementsByClassName("menuClose")[0];
   let select_buttons = document.getElementById("select_buttons");
   let menu_item = document.getElementById("menu_item");
 
@@ -67,15 +70,24 @@ window.onload = function(){
     menu_item.innerHTML = menu_item_data();
   }
 
+  menuBtn.onclick = function () {
+    menuModal.style.display = "block";
+  }
+
   close.onclick = function () {
     modal.style.display = "none";
+  }
+
+  menuClose.onclick = function () {
+    menuModal.style.display = "none";
   }
 
   window.onclick = function (event) {
     if (event.target == modal) {
       modal.style.display = "none";
     }
+    else if (event.target == menuModal){
+      menuModal.style.display = "none";
+    }
   }
 }
-
-
