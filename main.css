@@ -52,11 +52,50 @@ body{
 }
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 1% auto; /* 1% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  border-radius: 5px;
+  width: 50%; /* Could be more or less, depending on screen size */
+  height: 85%;
+  padding: 0;
 }
+
+/* Customization Menu */
+#menu_item {
+  width: 99%;
+  height: 85%;
+  overflow-y: scroll;
+}
+#menu_item_name {
+  margin-top: -10px;
+  padding-left: 10px;
+}
+#menu_item_image{
+  width: 100.1%;
+  margin-top: -5px;
+}
+#menu_custom{
+  padding: 10px 5px;
+  font-size: 20px;
+  line-height: 25px;
+}
+input[type="checkbox"]{
+  width: 18px;
+  height: 15px;
+  padding-top: 15px;
+}
+#menu_buttons{
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+}
+#add_comments{
+  margin-left: 10px;
+  padding: 10px;
+  width: 90%;
+}
+/* End Custumization Menu */
 /* End Modal */
 
 /* The Close Button */
@@ -65,6 +104,7 @@ body{
   float: right;
   font-size: 28px;
   font-weight: bold;
+  margin-right: 5px;
 }
 .close:hover,
 .close:focus {
@@ -104,14 +144,14 @@ body{
   height: 26px;
   width: 150px;
   float: left;
-  margin: 17.5px 15px;
+  margin: 24px 15px;
   padding-left: 5px;
 }
 .bar button{
   background-color: transparent;
   color: #aaa;
   border: 0px;
-  margin-top: 22px;
+  margin-top: 30px;
   margin-left: -45px;
   width: 25px;
 }
@@ -123,6 +163,9 @@ body{
 /* Selection Buttons */
 .row{
   margin: 25px;
+  padding-left: 15px;
+  display: flex;
+  justify-content: space-between;
 }
 .btn {
   /* text-transform: uppercase; */

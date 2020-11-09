@@ -25,20 +25,17 @@
       </form>
     </div>
 
-    <div class="row" onload="select_buttons()">
-      <a href="#" class="btn btn__outline--Vegetarian btn--round">Vegetarian</a>
-      <a href="#" class="btn btn__outline--Sandwiches btn--round">Sandwiches</a>
-      <a href="#" class="btn btn__outline--Burgers btn--round">Burgers</a>
-      <a href="#" class="btn btn__outline--Desserts btn--round">Desserts</a>
-      <a href="#" class="btn btn__outline--Barbecue btn--round">Barbecue</a>
-      <a href="#" class="btn btn__outline--Sushi btn--round">Sushi</a>
-  </div>
+    <div class="row" id="select_buttons"></div>
 
   <button id="myBtn">Popup</button>
   <div id="myModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
-      <p>HELLO THERE!!</p>
+      <div class="menu_item" id="menu_item">Hello, something went wrong. Try again, please?</div>
+      <div id="menu_buttons">
+        <button type="submit" id="cancel">Cancel</button>
+        <button type="submit" id="add_to_cart"> $7.00 Add To Cart</button>        
+      </div>
     </div>
   </div>
 
