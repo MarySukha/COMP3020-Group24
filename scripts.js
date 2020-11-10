@@ -1,9 +1,6 @@
-let i = 0;
-function increment(){
-  return ++i;
-}
 
-function menu_item_data(){
+function menu_item_data(item_id){
+  console.log(item_id);
   let extras = [
     {name: 'extra_tomatoes', value: 'Extra Tomatoes'},
     {name: 'extra_cheese', value: 'Extra Cheese ($0.50)'},
@@ -34,13 +31,59 @@ function menu_item_data(){
     item_excludes += '<input type="checkbox" name='+exclude.name+' value='+exclude.value+'>';
     item_excludes += '<label for='+exclude.name+'>'+exclude.value+'</label><br/>';
   })
-  item_excludes += '<hr></div>';
+  item_excludes += '<hr></div></div>';
 
   let add_comments = '<p>Additional Instructions (allergies, special requests, etc.)</p>';  
   add_comments += '<textarea id="add_comments"></textarea>';
 
-  let temp = item_name+item_image+item_extras+item_excludes+add_comments;
-  return temp;
+  let temp = '<div class="menu_item">' 
+  temp += item_name+item_image+item_extras+item_excludes+add_comments;
+  temp += '</div>';
+  let menu_buttons = '<div id="menu_buttons">';
+  menu_buttons += '<button type="submit" class="menu_button" id="cancel_add">Cancel</button>';
+  menu_buttons += '<button type="submit" class="menu_button" id="add_to_cart">Add To Cart</button>';
+  menu_buttons += '</div>';
+  return temp+menu_buttons;
+}
+
+// function restaurant_data(){
+//   // This will go into the bubble on click
+//   let restaurant_name = "McDonald's"
+//   let logo_image = './static/McDonalds_logo.png';
+//   let restaurant_address = '1280 Pembina Highway'; 
+//   let temp = 'Welcome to '+restaurant_name;
+//   temp += '<img id ="restaurant_logo" src='+logo_image+' title="logo">';
+//   temp += '<p>'+restaurant_address+'</p>';
+
+//   let menu_buttons = '<div id="menu_buttons">';
+//   menu_buttons += '<button type="submit" class="menu_button" id="cancel">Cancel</button>';
+//   menu_buttons += '<button type="submit" class="menu_button" id="order_here">Order Here</button>';
+//   menu_buttons += '</div>';
+//   return temp+menu_buttons;
+// }
+
+function display_restaurant_menu(){
+  let temp = '<div class="restaurant_menu">';
+  let menu = restaurant_menus["McDonald's"];
+  
+  menu.forEach(category=>{
+    temp += '<h2>'+category.name+'</h2>';
+    category.items.forEach(item => {
+      temp += '<figure value="'+item.name+'"class="item">';
+      temp += '<img src='+item.img+'" class="resize" alt="'+item.name+'">';
+      temp += '<figcaption class="caption"><b>'+item.name+'</b>';
+      temp += '<br><p>'+item.calories+' calories</p>'+item.desc;
+      temp += '<br><h2>'+item.price+'</h2></figcaption>';
+      temp += '</figure>';
+    });
+  });
+  temp += "</div>";
+  let menu_buttons = '<div id="menu_buttons">';
+  menu_buttons += '<button type="submit" class="menu_button" id="cancel_order">Cancel</button>';
+  menu_buttons += '<button type="submit" class="menu_button" id="checkout">Checkout</button>';
+  menu_buttons += '</div>';
+
+  return temp+menu_buttons;
 }
 
 function selection_buttons() {
@@ -48,46 +91,35 @@ function selection_buttons() {
   let temp='';
   options.forEach(option=>{
     temp+='<a href="#" class="btn btn__outline--Vegetarian btn--round">'+option+'</a>';
-  })
+  });
  return temp;
 }
 
 window.onload = function(){
   let modal = document.getElementById("myModal");
-  let menuModal = document.getElementById("menuModal");
   let btn = document.getElementById("myBtn");
-  let menuBtn = document.getElementById("menuBtn");
-  let close = document.getElementsByClassName("close")[0];
-  let menuClose = document.getElementsByClassName("menuClose")[0];
+  let close = document.getElementById("close");
   let select_buttons = document.getElementById("select_buttons");
-  let menu_item = document.getElementById("menu_item");
+  let modal_data = document.getElementById("modal_data");
 
   select_buttons.innerHTML = selection_buttons();
 
 
   btn.onclick = function () {
     modal.style.display = "block";
-    menu_item.innerHTML = menu_item_data();
+    modal_data.innerHTML = display_restaurant_menu();
   }
-
-  menuBtn.onclick = function () {
-    menuModal.style.display = "block";
-  }
-
-  close.onclick = function () {
-    modal.style.display = "none";
-  }
-
-  menuClose.onclick = function () {
-    menuModal.style.display = "none";
-  }
+  close.onclick = function () {modal.style.display = "none";}
 
   window.onclick = function (event) {
     if (event.target == modal) {
       modal.style.display = "none";
-    }
-    else if (event.target == menuModal){
-      menuModal.style.display = "none";
+    }else if(event.path[1].className == "item"){
+      modal_data.innerHTML = menu_item_data(event.path[1].getElementsByTagName('b')[0].innerText);
+    }else if(event.target.id == "cancel_order"){
+      modal.style.display = "none";
+    }else if (event.target.id == "cancel_add"){
+      modal_data.innerHTML = display_restaurant_menu();
     }
   }
 }
