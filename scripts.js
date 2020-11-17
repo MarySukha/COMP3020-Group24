@@ -117,9 +117,9 @@ function balloon_btn() {
     temp += '<div class="balloon" style="--left: '+positionX+'%; --hue: 0; --size: 80px;">';
     positionX += 10;
     temp += '<a href="#modal_data" class="balloon_individual"><img src='+rLogo.link+' alt="balloon_logo" style="width:'+size+'px;height:'+size+'px;"></a>';
+    temp += '<div class="baloon_name">'+rLogo.name+'</div>';
     temp += '<div class="handle"></div>';
     temp += '</div>';
-    // temp += '<div class="baloon_name">'+rLogo.name+'</div>';
   }
   );
   return temp;
