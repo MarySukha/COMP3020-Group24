@@ -99,15 +99,15 @@ function selection_buttons() {
 
 
 function balloon_btn() {
-  let restaurantName = ["McDona", "BurgerKing", "Wendys", "KFC", "Popeyes", "MaryBrown", "A&W", "FiveGuys", "Jollibee"];
+  let restaurantName = ["McDonalds", "Burger King", "Wendys", "KFC", "Popeyes", "MaryBrown", "A&W", "Five Guys", "Jollibee"];
   let restaurantLogo = [ { name: "McDonalds", link: "./static/logos/McDonalds_logo.png", ranking: 9.6}, 
-  { name: "BurgerKing", link: "./static/logos/BurgerKing_logo.png", ranking: 8.8},
+  { name: "Burger King", link: "./static/logos/BurgerKing_logo.png", ranking: 8.8},
   { name:"Wendys", link: "./static/logos/Wendys_logo.jpg", ranking: 8.6}, 
   { name: "KFC", link: "./static/logos/KFC_logo.jpg", ranking: 8.2},
   { name: "Popeyes", link: "./static/logos/Popeyes_logo.jpg", ranking: 9.4}, 
-  { name: "MaryBrown", link: "./static/logos/MaryBrown_logo.jpg", ranking: 9.6},
+  { name: "Mary Brown", link: "./static/logos/MaryBrown_logo.jpg", ranking: 9.6},
   { name:"A&W", link: "./static/logos/A&W_logo.png", ranking: 9.6}, 
-  { name: "FiveGuys", link: "./static/logos/FiveGuys_logo.jpg", ranking: 8.9},
+  { name: "Five Guys", link: "./static/logos/FiveGuys_logo.jpg", ranking: 8.9},
   { name: "Jollibee", link: "./static/logos/Jollibee_logo.jpg", ranking: 9.4}  ];
   let temp = '';
   let positionX = 5;
@@ -119,6 +119,7 @@ function balloon_btn() {
     temp += '<a href="#modal_data" class="balloon_individual"><img src='+rLogo.link+' alt="balloon_logo" style="width:'+size+'px;height:'+size+'px;"></a>';
     temp += '<div class="handle"></div>';
     temp += '</div>';
+    // temp += '<div class="baloon_name">'+rLogo.name+'</div>';
   }
   );
   return temp;
