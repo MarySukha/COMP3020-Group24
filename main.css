@@ -83,7 +83,7 @@ body{
   padding-left: 10px;
 }
 #menu_item_image{
-  width: 100.1%;
+  width: 100%;
   margin-top: -5px;
 }
 #menu_custom{
@@ -192,7 +192,7 @@ input[type="checkbox"]{
   margin-right: 15px;
 }
 .btn--round:hover {
-  background-color: #aaa;
+  background-color: rgb(226, 69, 69);
   color: #fff;
 }
 /* End Selection Buttons */
@@ -213,4 +213,82 @@ input[type="checkbox"]{
   width: 99%;
   height: 85%;
   overflow-y: scroll;
+}
+
+
+
+/*balloon*/
+/*float*/
+.container
+{
+  margin: 0 auto;
+  width: 100%;
+  height:500px;
+  position: relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background: #fff;
+  overflow: hidden;
+  border-radius: 2%;
+}
+/*balloon*/
+.balloon 
+{
+  height: calc(1.2 * var(--size));
+  width: var(--size);
+  background: hsla(var(--hue), 100%, 50%, 0.8);
+  border-radius: 50% 50% 50% 50% / 45% 45% 55% 55%;
+  position: absolute;
+  top: 15%;
+  left:var(--left, 50%);
+   animation: float 1s linear both;
+}
+/*light*/
+.balloon:before 
+{
+  content: '';
+  position: absolute;
+  width: 20%;
+  height: 30%;
+  top: 8%;
+  left: 16%;
+  border-radius: 50%;
+  transform: rotate(40deg);
+  background: hsla(0, 0%, 100%, 0.75);
+}
+.handle 
+{
+  width: 2%;
+  height: 100%;
+  background:hsl(45, 100%, 40%);
+  top: 100%;
+  left: 60%;
+  /* transform: translate(-50%, 0); */
+  position: absolute;
+}
+.handle:before,.handle:after 
+{
+  content: '';
+  position: absolute;
+  height: 5%;
+  transform: translate(-50%, 0);
+  border-radius: 25% / 50%;
+  left: 50%;
+}
+.handle:before 
+{
+  top: 0;
+  background:hsl(45, 100%, 40%);
+  width: 500%;
+}
+.handle:after 
+{
+  top: 5%;
+  background: hsla(var(--hue), 100%, 50%, 0.8)
+}
+@keyframes float 
+{
+   from  {  transform: translate(50%, -50%) translate(0, 300px); }
+   to    {  transform: translate(50%, -50%) translate(0, 0px); }
 }
