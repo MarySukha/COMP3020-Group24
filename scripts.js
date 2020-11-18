@@ -59,6 +59,26 @@ function menu_item_data(item_id){ //images currently used need to be replaced - 
   return temp+menu_buttons;
 }
 
+//-------------------------------------
+function searchFunc() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("input");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+
+//-----------------
+
 
 // function restaurant_data(){
 //   // This will go into the bubble on click
