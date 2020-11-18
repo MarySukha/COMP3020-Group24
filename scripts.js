@@ -77,25 +77,20 @@ function menu_item_data(item_id){ //images currently used need to be replaced - 
 // }
 
 function balloon_btn() {
-  let restaurantLogo = [ { name: "McDonalds", link: "./static/logos/McDonalds_logo.png", ranking: 9.6}, 
-  { name: "Burger King", link: "./static/logos/BurgerKing_logo.png", ranking: 8.8},
-  { name:"Wendys", link: "./static/logos/Wendys_logo.jpg", ranking: 8.6}, 
-  { name: "KFC", link: "./static/logos/KFC_logo.jpg", ranking: 8.2},
-  { name: "Popeyes", link: "./static/logos/Popeyes_logo.jpg", ranking: 9.4}, 
-  { name: "Mary Brown", link: "./static/logos/MaryBrown_logo.jpg", ranking: 9.6},
-  { name:"A&W", link: "./static/logos/A&W_logo.png", ranking: 9.6}, 
-  { name: "Five Guys", link: "./static/logos/FiveGuys_logo.jpg", ranking: 8.9},
-  { name: "Jollibee", link: "./static/logos/Jollibee_logo.jpg", ranking: 9.4}  ];
+  let restaurantLogo = restaurantMeta;
   let temp = '';
-  let positionX = 5;
-  restaurantLogo.forEach(rLogo=> {
-    let size = ( 9.6 / 10) * 100;
-    //let size = ( rLoge.ranking / 10) * 100;
-    temp += '<div class="balloon" style="--left: '+positionX+'%; --hue: 0; --size: 80px;">';
-    positionX += 10;
-    temp += '<a href="#modal_data" class="balloon_individual"><img src='+rLogo.link+' alt="balloon_logo" style="width:'+size+'px;height:'+size+'px;"></a>';
-    temp += '<div class="baloon_name">'+rLogo.name+'</div>';
+  let positionX = 2;
+  restaurantLogo.forEach((rLogo, i)=> {
+    let size = 96;
+    if((i+1)%2){temp += '<div id="first_row">';}
+    else {temp += '<div id="second_row">';}
+    temp += '<div class="balloon" style="--left: '+positionX+'%; --opacity: 0; --size: 80px;">';
+    positionX += 5;
+    temp += '<a href="#modal_data" class="balloon_individual">';
+    temp += '<img class="balloon_logo" src='+rLogo.logo+' alt="balloon_logo" style="width:'+size+'px;height:'+size+'px;"></a>';
+    temp += '<div class="balloon_name"><h1>'+rLogo.name+'</h1></div>';
     temp += '<div class="handle"></div>';
+    temp += '</div>';
     temp += '</div>';
   });
   return temp;

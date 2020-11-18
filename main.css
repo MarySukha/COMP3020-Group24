@@ -223,7 +223,7 @@ input[type="checkbox"]{
 {
   margin: 0 auto;
   width: 100%;
-  height:500px;
+  height: 65vh;
   position: relative;
   display:flex;
   justify-content:center;
@@ -242,14 +242,13 @@ input[type="checkbox"]{
   position: absolute;
   top: 15%;
   left:var(--left, 50%);
-   animation: float 1s linear both;
 }
 /*light*/
 .balloon:before 
 {
   content: '';
   position: absolute;
-  width: 20%;
+  width: 15%;
   height: 30%;
   top: 8%;
   left: 16%;
@@ -257,21 +256,25 @@ input[type="checkbox"]{
   transform: rotate(40deg);
   background: hsla(0, 0%, 100%, 0.75);
 }
-.handle 
+
+.handle
 {
+  height: 100vh;
   width: 2%;
-  height: 100%;
   background:hsl(45, 100%, 40%);
   top: 100%;
   left: 60%;
   /* transform: translate(-50%, 0); */
   position: absolute;
 }
+#first_row .balloon { animation: float1 0.5s linear both;}
+#second_row .balloon { animation: float2 0.5s linear both;}
+
 .handle:before,.handle:after 
 {
   content: '';
   position: absolute;
-  height: 5%;
+  height: 5px;
   transform: translate(-50%, 0);
   border-radius: 25% / 50%;
   left: 50%;
@@ -287,8 +290,22 @@ input[type="checkbox"]{
   top: 5%;
   background: hsla(var(--hue), 100%, 50%, 0.8)
 }
-@keyframes float 
+.balloon_logo{
+  border-radius: 50%;
+}
+.balloon_name{
+  width: 100px;
+  text-align: center;
+  transform: translate(0%, -130px);
+}
+
+@keyframes float1 
 {
-   from  {  transform: translate(50%, -50%) translate(0, 300px); }
+   from  {  transform: translate(50%, -50%) translate(0, 500px); }
    to    {  transform: translate(50%, -50%) translate(0, 0px); }
+}
+@keyframes float2 
+{
+   from  {  transform: translate(50%, -50%) translate(0, 500px); }
+   to    {  transform: translate(50%, -50%) translate(0, 200px); }
 }
