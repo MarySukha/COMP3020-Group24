@@ -79,6 +79,7 @@ $("#add_to_cart").live("click", function () {
       value: $(this).val(),
       price: $(this).attr("price")
     });
-});
+  });
+  if($("textarea").val()){ custom.push({ comments: $("textarea").val() })};
   addItem(item_name, item_price, custom);
 });
