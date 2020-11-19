@@ -78,10 +78,6 @@ body{
   height: 85%;
   overflow-y: scroll;
 }
-#menu_item_name {
-  margin-top: -10px;
-  padding-left: 10px;
-}
 #menu_item_image{
   width: 100%;
   margin-top: -5px;
@@ -192,9 +188,10 @@ input[type="checkbox"]{
   margin-right: 15px;
 }
 .btn--round:hover {
-  background-color: rgb(226, 69, 69);
+  background-color: #aaa;
   color: #fff;
 }
+
 /* End Selection Buttons */
 
 /*Menu*/
@@ -214,34 +211,6 @@ input[type="checkbox"]{
   height: 85%;
   overflow-y: scroll;
 }
-
-/*------------------------------------------Search List CSS---------------------------------------*/
-
-
-#myUL {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  
-}
-
-#myUL li a {
-  border: 1px solid #ddd;
-  margin-top: -1px; /* Prevent double borders */
-  background-color: #f6f6f6;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px;
-  color: black;
-  display: block;
-  float : left
-  
-}
-
-
-/*------------------------------------------------------------------------------------------------*/
-
-
 
 /*balloon*/
 /*float*/
@@ -293,8 +262,8 @@ input[type="checkbox"]{
   /* transform: translate(-50%, 0); */
   position: absolute;
 }
-#first_row .balloon { animation: float1 0.5s linear both;}
-#second_row .balloon { animation: float2 0.5s linear both;}
+#first_row .balloon { animation: float1 0.2s linear both;}
+#second_row .balloon { animation: float2 0.2s linear both;}
 
 .handle:before,.handle:after 
 {
@@ -333,5 +302,5 @@ input[type="checkbox"]{
 @keyframes float2 
 {
    from  {  transform: translate(50%, -50%) translate(0, 500px); }
-   to    {  transform: translate(50%, -50%) translate(0, 200px); }
+   to    {  transform: translate(50%, -50%) translate(0, 150px); }
 }

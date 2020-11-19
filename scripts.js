@@ -59,26 +59,18 @@ function menu_item_data(item_id){ //images currently used need to be replaced - 
   return temp+menu_buttons;
 }
 
-//-------------------------------------
-function searchFunc() {
-    var input, filter, ul, li, a, i, txtValue;
-    input = document.getElementById("input");
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("myUL");
-    li = ul.getElementsByTagName("li");
-    for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
-        txtValue = a.textContent || a.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
-        }
-    }
+function searchTags(value) {
+  value = value.toLowerCase();
+  let results = [];
+  restaurantMeta.forEach(restaurant => {
+    let fit = false;
+    restaurant.tags.forEach(tag => {
+      if(tag.includes(value)){ fit = true; }
+    });
+    if(fit){results.push(restaurant);}
+  });
+  balloon_buttons.innerHTML = balloon_btn(results);
 }
-
-//-----------------
-
 
 // function restaurant_data(){
 //   // This will go into the bubble on click
@@ -96,8 +88,7 @@ function searchFunc() {
 //   return temp+menu_buttons;
 // }
 
-function balloon_btn() {
-  let restaurantLogo = restaurantMeta;
+function balloon_btn(restaurantLogo) {
   let temp = '';
   let positionX = 2;
   restaurantLogo.forEach((rLogo, i)=> {
@@ -141,13 +132,25 @@ function display_restaurant_menu(){
 }
 
 function selection_buttons() {
-  let options = ["Sandwiches", "Burgers", "Desserts", "Barbecue", "Sushi", "Coffee", "Breakfast"];
+  let options = [
+    "Burgers", "Desserts", "Barbecue",
+    "Sushi", "Coffee", "Breakfast", "Chicken", 
+    "Vegiterian", "Bakery", "Greek"
+  ];
   let temp='';
   options.forEach(option=>{
-    temp+='<a href="#" class="btn btn__outline--Vegetarian btn--round">'+option+'</a>';
+    temp+='<a href="#" onclick="select_button_click(\''+option+'\')" class="btn btn__outline btn--round" id="'+option+'">'+option+'</a>';
   });
  return temp;
 }
+
+function select_button_click(value){
+  searchTags(value);
+  let elems = document.getElementsByClassName('btn--round');
+  for (let el of elems) {el.style.cssText = 'background-color: #fff; color: #191919;';}
+  document.getElementById(value).style.cssText = "background-color: #aaa; color: #fff;";
+}
+
 
 window.onload = function(){
   let modal = document.getElementById("myModal");
@@ -155,11 +158,10 @@ window.onload = function(){
   let close = document.getElementById("close");
   let select_buttons = document.getElementById("select_buttons");
   let modal_data = document.getElementById("modal_data");
-  let item_form = document.getElementById("menu_custom");
-  var itemName, itemPrice;
+  let itemName;
 
   select_buttons.innerHTML = selection_buttons();
-  balloon_buttons.innerHTML = balloon_btn();
+  balloon_buttons.innerHTML = balloon_btn(restaurantMeta);
 
 
   balloon_buttons.onclick = function () {
@@ -173,7 +175,6 @@ window.onload = function(){
       modal.style.display = "none";
     }else if(event.path[1].className == "item"){
       itemName = event.path[1].getElementsByTagName('b')[0].innerText;
-      itemPrice = Number(event.path[1].getElementsByTagName('h2')[0].innerText);
       modal_data.innerHTML = menu_item_data(itemName);
     }else if(event.target.id == "cancel_order"){ //closes modal + clears cart
       clearCart();
