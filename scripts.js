@@ -1,4 +1,5 @@
 
+let curr_restaurant = '';
 function menu_item_data(item_id){ //images currently used need to be replaced - blurry
   let menu = restaurant_menus["McDonald's"];
   let temp = '<div class="menu_item">';
@@ -60,6 +61,8 @@ function menu_item_data(item_id){ //images currently used need to be replaced - 
 }
 
 function searchTags(value) {
+  let elems = document.getElementsByClassName('btn--round');
+  for (let el of elems) {el.style.cssText = 'background-color: #fff; color: #191919;';}
   value = value.toLowerCase();
   let results = [];
   restaurantMeta.forEach(restaurant => {
@@ -98,7 +101,7 @@ function balloon_btn(restaurantLogo) {
     temp += '<div class="balloon" style="--left: '+positionX+'%; --opacity: 0; --size: 80px;">';
     positionX += 5;
     temp += '<a href="#modal_data" class="balloon_individual">';
-    temp += '<img class="balloon_logo" src='+rLogo.logo+' alt="balloon_logo" style="width:'+size+'px;height:'+size+'px;"></a>';
+    temp += '<img class="balloon_logo" id="'+rLogo.name+'"src='+rLogo.logo+' alt="balloon_logo" style="width:'+size+'px;height:'+size+'px;"></a>';
     temp += '<div class="balloon_name"><h1>'+rLogo.name+'</h1></div>';
     temp += '<div class="handle"></div>';
     temp += '</div>';
@@ -108,34 +111,36 @@ function balloon_btn(restaurantLogo) {
 }
 
 function display_restaurant_menu(){
-  let temp = '<div class="restaurant_menu">';
-  let menu = restaurant_menus["McDonald's"];
-  
-  menu.forEach(category=>{
-    temp += '<h2>'+category.name+'</h2>';
-    category.items.forEach(item => {
-      temp += '<figure value="'+item.name+'"class="item">';
-      temp += '<img src='+item.img+'" class="resize" alt="'+item.name+'">';
-      temp += '<figcaption class="caption"><b>'+item.name+'</b>';
-      temp += '<br><p>'+item.calories+' calories</p>'+item.desc;
-      temp += '<br><h2>'+item.price+'</h2></figcaption>';
-      temp += '</figure>';
+  let menu = restaurant_menus[curr_restaurant];
+  if(menu){
+    let temp = '<h1>'+curr_restaurant+'</h1>';
+    temp += '<div class="restaurant_menu">';
+    menu.forEach(category=>{
+      temp += '<h2>'+category.name+'</h2>';
+      category.items.forEach(item => {
+        temp += '<figure value="'+item.name+'"class="item">';
+        temp += '<img src='+item.img+'" class="resize" alt="'+item.name+'">';
+        temp += '<figcaption class="caption"><b>'+item.name+'</b>';
+        temp += '<br><p>'+item.calories+' calories</p>'+item.desc;
+        temp += '<br><h2>'+item.price+'</h2></figcaption>';
+        temp += '</figure>';
+      });
     });
-  });
-  temp += "</div>";
-  let menu_buttons = '<div id="menu_buttons">';
-  menu_buttons += '<button type="submit" class="menu_button" id="cancel_order">Cancel</button>';
-  menu_buttons += '<button type="submit" class="menu_button" id="checkout">Checkout</button>';
-  menu_buttons += '</div>';
-
-  return temp+menu_buttons;
+    temp += "</div>";
+    let menu_buttons = '<div id="menu_buttons">';
+    menu_buttons += '<button type="submit" class="menu_button" id="cancel_order">Cancel</button>';
+    menu_buttons += '<button type="submit" class="menu_button" id="checkout">Checkout</button>';
+    menu_buttons += '</div>';
+  
+    return temp+menu_buttons;
+  }else{ return '<div>No mock data here, try a different restaurant</div>'; }
 }
 
 function selection_buttons() {
   let options = [
-    "Burgers", "Desserts", "Barbecue",
+    "Burgers", "Desserts", "Pizza",
     "Sushi", "Coffee", "Breakfast", "Chicken", 
-    "Vegiterian", "Bakery", "Greek"
+    "Vegeterian", "Bakery", "Greek"
   ];
   let temp='';
   options.forEach(option=>{
@@ -164,11 +169,15 @@ window.onload = function(){
   balloon_buttons.innerHTML = balloon_btn(restaurantMeta);
 
 
-  balloon_buttons.onclick = function () {
+  balloon_buttons.onclick = function (event) {
     modal.style.display = "block";
+    curr_restaurant= event.target.id;
     modal_data.innerHTML = display_restaurant_menu();
   }
-  close.onclick = function () {modal.style.display = "none";}
+  close.onclick = function () {
+    curr_restaurant = "";
+    modal.style.display = "none";
+  }
 
   window.onclick = function (event) {
     if (event.target == modal) {
