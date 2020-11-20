@@ -12,7 +12,7 @@ function menu_item_data(item_id){ //images currently used need to be replaced - 
   });
 
   temp += '<div><h1 id="menu_item_name">'+item.name+'</h1>';
-  temp += '<div id="menu_item_price">$'+item.price+'</div>';
+  temp += '<div id="menu_item_price">'+item.price+'</div>';
   temp += '<p>'+item.desc+'</p></div>';
   temp += '<img id="menu_item_image" src='+item.img+'/>';
 
@@ -21,7 +21,7 @@ function menu_item_data(item_id){ //images currently used need to be replaced - 
     item.custom.single.forEach(category => {
       temp += '<hr>'+category.name+'<hr><div id="'+category.name+'">';
       category.options.forEach(option => {
-        temp += '<input type="radio" id="'+option.name+'" name='+category.name+' value="'+option.value+'" price='+option.price+'>';
+        temp += '<input type="radio" id="'+option.name+'" name='+category.name+' value="'+option.value+'" price='+option.price+' checked="checked">';
         if(!option.price){
           temp += '<label for='+option.name+'>'+option.value+'</label><br/>';
         }
