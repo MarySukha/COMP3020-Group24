@@ -12,13 +12,19 @@ class Item {
 }
 
 function addItem(name, price, custom){
+  var totalPrice = Number(price);
+
   for(var i in cart){
     if (cart[i].name === name && (JSON.stringify(cart[i].custom)==JSON.stringify(custom))){
       cart[i].count += count;
       return;
     }
   }
-  var item = new Item(name, price, 1, custom, id_var++);
+  for(var i in custom){
+    console.log(custom[i].price);
+    totalPrice += (+custom[i].price);
+  }
+  var item = new Item(name, totalPrice.toFixed(2), 1, custom, id_var++);
   cart.push(item);
   console.log(item);
 }
@@ -40,13 +46,19 @@ function clearCart(){
 }
 
 function totalCost(){
-  var totalCost = 0;
-  var cost = 0;
+  var cost = 0, taxTotal = 0, totalCost = 0;
+  var taxPercent = 0.13;
 
   for(var i in cart){
-    totalCost += (cart[i].price * cart[i].count);
+    cost += (cart[i].price * cart[i].count);
   }
-  return totalCost.toFixed(2);
+
+  taxTotal = taxPercent * cost;
+  totalCost = cost + taxTotal;
+
+  var text = "subtotal: " + cost.toFixed(2) + " tax: " + taxTotal.toFixed(2) + " total: " + totalCost.toFixed(2);
+
+  return text;
 }
 
 function listCart(){
@@ -80,6 +92,6 @@ $("#add_to_cart").live("click", function () {
       price: $(this).attr("price")
     });
   });
-  if($("textarea").val()){ custom.push({ comments: $("textarea").val() })};
+  if($("textarea").val()){ custom.push({ comments: $("textarea").val(), price: 0 })};
   addItem(item_name, item_price, custom);
 });
