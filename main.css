@@ -276,12 +276,6 @@ input[type="checkbox"]{
   color: #000;
 }
 
-#delivery_instructions{
-  margin-left: 10px;
-  padding: 10px;
-  width: 95%;
-}
-
 .restaurant_menu{
   width: 99%;
   height: 86%;
@@ -328,7 +322,7 @@ input[type="checkbox"]{
 
 .handle
 {
-  height: 250%;
+  height: 100vh;
   width: 2%;
   background:#8c1119;
   top: 100%;
@@ -366,6 +360,21 @@ input[type="checkbox"]{
   width: 100px;
   text-align: center;
   transform: translate(0%, -130px);
+}
+
+#cart_details{
+  color: #858585;
+}
+
+#delivery_instructions{
+  margin-left: 10px;
+  padding: 10px;
+  width: 95%;
+}
+
+#count{
+  font-size: 30px;
+  margin-top: -3px;
 }
 
 @keyframes float1 

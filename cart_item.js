@@ -15,24 +15,33 @@ function addItem(name, price, custom){
   let totalPrice = Number(price);
   for(let i in cart){
     if (cart[i].name === name && (JSON.stringify(cart[i].custom)==JSON.stringify(custom))){
-      cart[i].count += count;
+      cart[i].count += curr_count;
       return;
     }
   }
   for(let i in custom){ totalPrice += (+custom[i].price);}
-  let item = new Item(name, totalPrice.toFixed(2), 1, custom, id_var++);
+  let item = new Item(name, totalPrice.toFixed(2), curr_count, custom, id_var++);
   cart.push(item);
+  curr_count = 1;
+  if(curr_item.id != null){
+    modal_data.innerHTML = display_cart();
+    curr_item = {};
+  }
 }
 
 function removeItem(id){
-  // console.log(id);
   cart = cart.filter( item => item.id != id );
-  // console.log(cart);
   modal_data.innerHTML = display_cart();
 }
 
 function clearCart(){
   cart = [];
+}
+
+function edit_count(val){
+  temp = curr_count + val;
+  if(temp > 0){curr_count = temp;}
+  document.getElementById("count").innerHTML = curr_count;
 }
 
 function totalCost(){
@@ -82,6 +91,29 @@ $("#add_to_cart").live("click", function () {
       price: $(this).attr("price")
     });
   });
-  if($("textarea").val()){ custom.push({ value: $("textarea").val(), price: 0 })};
+  if($("textarea").val()){ custom.push({ name: "comment", value: $("textarea").val(), price: 0 })};
+  addItem(item_name, item_price, custom);
+});
+
+$("#edit_cart").live("click", function () {
+  let item_name = document.getElementById("menu_item_name").innerHTML;
+  let item_price = document.getElementById("menu_item_price").innerHTML;
+  let custom = [];
+  $("input:checkbox:checked").each(function () {
+      custom.push({
+        name: $(this).attr("id"),
+        value: $(this).val(),
+        price: $(this).attr("price")
+      });
+  });
+  $("input:radio:checked").each(function () {
+    custom.push({
+      name: $(this).attr("id"),
+      value: $(this).val(),
+      price: $(this).attr("price")
+    });
+  });
+  if($("textarea").val()){ custom.push({ name: "comment", value: $("textarea").val(), price: 0 })};
+  removeItem(curr_item.id);
   addItem(item_name, item_price, custom);
 });
