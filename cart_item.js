@@ -1,5 +1,5 @@
-var cart = [];
-var id_var = 0;
+let cart = [];
+let id_var = 0;
 
 class Item {
   constructor(name, price, count, custom, id) {
@@ -12,33 +12,23 @@ class Item {
 }
 
 function addItem(name, price, custom){
-  var totalPrice = Number(price);
-
-  for(var i in cart){
+  let totalPrice = Number(price);
+  for(let i in cart){
     if (cart[i].name === name && (JSON.stringify(cart[i].custom)==JSON.stringify(custom))){
       cart[i].count += count;
       return;
     }
   }
-  for(var i in custom){
-    console.log(custom[i].price);
-    totalPrice += (+custom[i].price);
-  }
-  var item = new Item(name, totalPrice.toFixed(2), 1, custom, id_var++);
+  for(let i in custom){ totalPrice += (+custom[i].price);}
+  let item = new Item(name, totalPrice.toFixed(2), 1, custom, id_var++);
   cart.push(item);
-  console.log(item);
 }
 
-function removeItem(name){
-  for(var i in cart){
-    if(cart[i].name === name){
-      cart[i].count--;
-      if(cart[i].count === 0){
-        cart.splice(i, 1);
-      }
-      break;
-    }
-  }
+function removeItem(id){
+  // console.log(id);
+  cart = cart.filter( item => item.id != id );
+  // console.log(cart);
+  modal_data.innerHTML = display_cart();
 }
 
 function clearCart(){
@@ -46,27 +36,27 @@ function clearCart(){
 }
 
 function totalCost(){
-  var cost = 0, taxTotal = 0, totalCost = 0;
-  var taxPercent = 0.13;
-
-  for(var i in cart){
+  let cost = 0, taxTotal = 0, totalCost = 0;
+  let taxPercentGST = 0.05;
+  let taxPercentPST = 0.07;
+  let delivery = 5;
+  let result = {};
+  for(let i in cart){
     cost += (cart[i].price * cart[i].count);
   }
-
-  taxTotal = taxPercent * cost;
-  totalCost = cost + taxTotal;
-
-  var text = "subtotal: " + cost.toFixed(2) + " tax: " + taxTotal.toFixed(2) + " total: " + totalCost.toFixed(2);
-
-  return text;
+  gst = cost*taxPercentGST;
+  pst = cost*taxPercentPST;
+  totalCost = cost + gst + pst + delivery;
+  result = {subtotal: cost.toFixed(2), delivery: delivery.toFixed(2), gst: gst.toFixed(2), pst: pst.toFixed(2), total: totalCost.toFixed(2)}
+  return result;
 }
 
 function listCart(){
-  var cartCopy = [];
-  for(var i in cart){
-    var item = cart[i];
-    var itemCopy = {};
-    for(var p in item){
+  let cartCopy = [];
+  for(let i in cart){
+    let item = cart[i];
+    let itemCopy = {};
+    for(let p in item){
       itemCopy[p] = item[p];
     }
     cartCopy.push(itemCopy);
@@ -92,6 +82,6 @@ $("#add_to_cart").live("click", function () {
       price: $(this).attr("price")
     });
   });
-  if($("textarea").val()){ custom.push({ comments: $("textarea").val(), price: 0 })};
+  if($("textarea").val()){ custom.push({ value: $("textarea").val(), price: 0 })};
   addItem(item_name, item_price, custom);
 });

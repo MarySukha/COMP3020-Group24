@@ -1,6 +1,6 @@
 let restaurantMeta = [
   { 
-    name: "McDonald's", 
+    name: "McDonald%27s", 
     address: "123 Fake Street",
     time: 24,
     logo: "./static/logos/McDonalds_logo.png", 
@@ -39,7 +39,7 @@ let restaurantMeta = [
     tags: ["sushi", "vegetarian", "bento", "asian", "japanese"]
   },
   { 
-    name:"Wendy's", 
+    name:"Wendy%27s", 
     logo: "./static/logos/Wendys_logo.png", 
     ranking: 8.6,
     address: "12 Wendy Ave.",
