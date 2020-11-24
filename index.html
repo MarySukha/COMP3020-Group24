@@ -14,24 +14,33 @@
 </head>
 
 <body>
+  <div id="landing">
+    <img id="landing_image" src="static/landing_page.jpg">
+    <form id="address_prompt">
+      <input type="text" id="address" placeholder="Enter Your Address"></input>
+      <button id="address_submit" type="button"><i id="address_submit" class="fa fa-search"></i></button>
+    </form>
+  </div>
+
   <div class="header">
     <img id="header_image" src="./static/header_background.jpg" />
   </div>
   <div id="logo_container">
-    <img id="logo" src="./static/order_up_logo_100px.png" title="Order Me Up logo">
+    <img id="logo" src="https://i.imgur.com/KymmhdC.png" title="Order Me Up logo">
+    <div id="delivery_address"></div>
   </div>
 
   <div class="bar">
     <form>
       <input type="text" id="search" onkeyup="searchTags(document.getElementById('search').value)" placeholder="Search">
-      <button type="submit" ><i class="fa fa-search"></i></button>
+      <button type="button" ><i class="fa fa-search"></i></button>
     </form>
   </div>
   
   <div class="row" id="select_buttons"></div>
 
   <div class="container">
-    <div id="balloon_buttons"></div>
+    <a id="balloon_buttons"></a>
   </div>
 
   <div id="myModal" class="modal">

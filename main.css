@@ -3,6 +3,52 @@
   font-family: Arial;
  }
 
+#landing{
+  z-index: 100;
+}
+#landing_image{
+  height: 100vh;
+  position: absolute;
+  justify-self: center;
+  top: 0;
+  transform: translate(-5%, 0);
+  z-index: 99;
+}
+#address_prompt{
+  position: absolute;
+  width: 100vw;
+  top: 50%;
+  z-index: 102;
+}
+#address_prompt input{
+  float: left;
+}
+#address_prompt button{
+  float: left;
+  font-size: 50px;
+  border-radius: 15px;
+  transform: translate(450%, 26%);
+}
+#address{
+  display: flex;
+  justify-content: space-around;
+  align-self: center;
+  width: 50%;
+  height: 60px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 30px;
+  transform: translate(50%, 0);
+}
+#delivery_address{
+  background-color: #191919;
+  color: #fff;
+  font-size: 25px;
+  height: 40px;
+  padding: 10px 10px 0 10px;
+  width: fit-content;
+}
+
 body{
   height: 100%;
   margin: 0;
@@ -12,11 +58,6 @@ body{
   overflow: hidden;
 }
 
-/* header
-   search bar / select buttons
-   container
-   footer
-*/
 .header{
   grid-row: 1;
   grid-column: 1/span 2;
@@ -71,6 +112,7 @@ button {
   margin: -15px;
   font-size: 20px;
   padding: 0 25px;
+  outline: none;
 }
 
 #header_image{
@@ -195,6 +237,7 @@ input[type="checkbox"]{
   float: left;
   margin: 24px 15px;
   padding-left: 5px;
+  outline: none;
 }
 .bar button{
   background-color: transparent;
@@ -203,6 +246,7 @@ input[type="checkbox"]{
   margin-top: 8px;
   margin-left: -65px;
   width: 25px;
+  outline: none;
 }
 .bar form {
   height: 0px;
@@ -364,12 +408,16 @@ input[type="checkbox"]{
 
 #cart_details{
   color: #858585;
+  padding-left: 10px;
 }
 
 #delivery_instructions{
   margin-left: 10px;
   padding: 10px;
   width: 95%;
+}
+#di_text{
+  padding-left: 10px;
 }
 
 #count{

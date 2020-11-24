@@ -5,6 +5,7 @@ let modal;
 let modal_data;
 let curr_item = {};
 let curr_count = 1;
+let address="";
 
 function item_click(item_name){
   modal_data.innerHTML = menu_item_data(item_name);
@@ -195,7 +196,7 @@ function restaurant_menu(){
 function display_cart(){
   let total_cost = totalCost();
   let temp = '<div class="cart_data">';
-  temp += '<h1>'+unescape(curr_restaurant)+'</h1>';//add address here if we have time
+  temp += '<h1>'+unescape(curr_restaurant)+" To: "+address+'</h1>';//add address here if we have time
   cart.forEach(item => {
     let item_data = find_item(item.name);
     temp += '<div class="display_item" value="'+item.name+'">';
@@ -213,7 +214,7 @@ function display_cart(){
         temp += '</li>';
       })
       temp += '</div>';//close custom div
-      temp += '<br><h2 class="price"> $'+item.price*item.count+'</h2>';//total price
+      temp += '<br><h2 class="price"> $'+(item.price*item.count).toFixed(2)+'</h2>';//total price
       temp += '</figure>';
       temp += '<div class="remove_item" id='+item.id+' onclick="removeItem('+item.id+')">&times;</div>';
       temp += '</div>';//close display item
@@ -228,7 +229,7 @@ function display_cart(){
   temp += '<div class="fee">Total: $'+total_cost.total+'</div>';
   temp += '</div>';//close cart details div
 
-  temp += '<p>Delivery Instructions</p>';  
+  temp += '<p id="di_text">Delivery Instructions</p>';  
   temp += '<textarea id="delivery_instructions"></textarea><p></p>';
   temp += '</div>'; //closes the cart data div
   let menu_buttons = '<div id="menu_buttons">';
@@ -317,6 +318,16 @@ window.onload = function(){
   let balloon_buttons = document.getElementById("balloon_buttons");
   let close = document.getElementById("close");
   let select_buttons = document.getElementById("select_buttons");
+  let landing = document.getElementById("landing");
+  let address_form = document.getElementById("address_prompt");
+
+  address_form.onsubmit = function () {
+    landing.style.display = "none";
+    address = document.getElementById("address").value;
+    let temp = "Deliver to: "+address+" &#9998;";
+    document.getElementById("delivery_address").innerHTML = temp;
+    return false;
+  }
 
   select_buttons.innerHTML = selection_buttons();
   balloon_buttons.innerHTML = balloon_btn(restaurantMeta);
@@ -333,6 +344,12 @@ window.onload = function(){
       modal_data.innerHTML = display_cart();
       curr_item = {};
       curr_count = 1;
+    }else if(event.target.id == "address_submit"){
+      landing.style.display = "none";
+      address = document.getElementById("address").value;
+      let temp = "Deliver to: "+address+" &#9998;";
+      document.getElementById("delivery_address").innerHTML = temp;
     }
   }
+
 }
