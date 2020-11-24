@@ -79,9 +79,9 @@ function menu_item_data(item_id){
   temp += add_comments+'</div>';
   
   let menu_buttons = '<div id="menu_buttons">';
-  menu_buttons += '<button type="button" class="menu_button" style="border-radius: 0 15px 0 0" id="cancel_add" onclick="display_restaurant_menu()">Cancel</button>';
+  menu_buttons += '<button type="button" class="menu_button" style="border-radius: 0 15px 15px 0" id="cancel_add" onclick="display_restaurant_menu()">Cancel</button>';
   menu_buttons += '<button id="count_up" onclick="edit_count(1)">+</button><p id="count">'+curr_count+'</p><button id="count_down" onclick="edit_count(-1)">-</button>';
-  menu_buttons += '<button type="submit" class="menu_button" style="border-radius: 15px 0 0 0" id="add_to_cart">Add To Cart</button>';
+  menu_buttons += '<button type="submit" class="menu_button" style="border-radius: 15px 0 0 15px" id="add_to_cart">Add To Cart</button>';
   menu_buttons += '</div>';
   return temp+menu_buttons;
 }
@@ -143,9 +143,9 @@ function menu_item_edit(cart_item){
   temp += add_comments+'</div>';
   
   let menu_buttons = '<div id="menu_buttons">';
-  menu_buttons += '<button type="button" class="menu_button" style="border-radius: 0 15px 0 0" id="cancel_edit">Cancel</button>';
+  menu_buttons += '<button type="button" class="menu_button" style="border-radius: 0 15px 15px 0" id="cancel_edit">Cancel</button>';
   menu_buttons += '<button id="count_up" onclick="edit_count(1)">+</button><p id="count">'+curr_count+'</p><button id="count_down" onclick="edit_count(-1)">-</button>';
-  menu_buttons += '<button type="submit" class="menu_button" style="border-radius: 15px 0 0 0" id="edit_cart">Edit Item</button>';
+  menu_buttons += '<button type="submit" class="menu_button" style="border-radius: 15px 0 0 15px" id="edit_cart">Edit Item</button>';
   menu_buttons += '</div>';
   return temp+menu_buttons;
 }
@@ -160,8 +160,8 @@ function display_restaurant_data(){
   temp += '<div id="delivery_time">'+restaurant.time+'</div>';
 
   let menu_buttons = '<div id="menu_buttons">';
-  menu_buttons += '<button type="submit" class="menu_button" id="cancel" style="border-radius: 0 15px 0 0" onclick="close_modal()">Cancel</button>';
-  menu_buttons += '<button type="submit" class="menu_button" id="order_here" style="border-radius: 15px 0 0 0" onclick="display_restaurant_menu()">Order Here</button>';
+  menu_buttons += '<button type="submit" class="menu_button" id="cancel" style="border-radius: 0 15px 15px 0" onclick="close_modal()">Cancel</button>';
+  menu_buttons += '<button type="submit" class="menu_button" id="order_here" style="border-radius: 15px 0 0 15px" onclick="display_restaurant_menu()">Order Here</button>';
   menu_buttons += '</div>';
   return temp+menu_buttons;
 }
@@ -184,9 +184,9 @@ function restaurant_menu(){
     });
     temp += "</div>";//close restaurant menu
     let menu_buttons = '<div id="menu_buttons">';
-    menu_buttons += '<button type="submit" class="menu_button" id="cancel_order" style="border-radius: 0 15px 0 0" onclick="cancel_order()">Cancel</button>';
+    menu_buttons += '<button type="submit" class="menu_button" id="cancel_order" style="border-radius: 0 15px 15px 0" onclick="cancel_order()">Cancel</button>';
     menu_buttons += '<div id="cart_total"><b>Subtotal: $'+totalCost().subtotal+'</b></div>';
-    menu_buttons += '<button type="submit" class="menu_button" id="checkout" style="border-radius: 15px 0 0 0">Checkout</button>';
+    menu_buttons += '<button type="submit" class="menu_button" id="checkout" style="border-radius: 15px 0 0 15px">Checkout</button>';
     menu_buttons += '</div>';
   
     return temp+menu_buttons;
@@ -233,9 +233,9 @@ function display_cart(){
   temp += '<textarea id="delivery_instructions"></textarea><p></p>';
   temp += '</div>'; //closes the cart data div
   let menu_buttons = '<div id="menu_buttons">';
-  menu_buttons += '<button type="button" class="menu_button" style="border-radius: 0 15px 0 0" id="add_more" onclick="display_restaurant_menu()">Add More</button>';
+  menu_buttons += '<button type="button" class="menu_button" style="border-radius: 0 15px 15px 0" id="add_more" onclick="display_restaurant_menu()">Add More</button>';
   menu_buttons += '<div id="cart_total"><b>Total: $'+total_cost.total+'</b></div>';
-  menu_buttons += '<button type="button" class="menu_button" style="border-radius: 15px 0 0 0" id="place_order" onclick="alert(\'Thanks!\')">Place Order</button>';
+  menu_buttons += '<button type="button" class="menu_button" style="border-radius: 15px 0 0 15px" id="place_order" onclick="alert(\'Thanks!\')">Place Order</button>';
   menu_buttons += '</div>';
   return temp+menu_buttons;
 }
