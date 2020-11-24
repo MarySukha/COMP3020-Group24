@@ -14,7 +14,7 @@ function item_click(item_name){
 function balloon_click(restaurant_name){
   modal.style.display = "block";
   curr_restaurant = restaurant_name;
-  display_restaurant_menu();
+  modal_data.innerHTML = display_restaurant_data();
 }
 
 function cancel_order(){
@@ -150,21 +150,21 @@ function menu_item_edit(cart_item){
   return temp+menu_buttons;
 }
 
-// function display_restaurant_data(){
-//   // This will go into the bubble on click
-//   let restaurant_name = "McDonald's"
-//   let logo_image = './static/McDonalds_logo.png';
-//   let restaurant_address = '1280 Pembina Highway'; 
-//   let temp = 'Welcome to '+restaurant_name;
-//   temp += '<img id ="restaurant_logo" src='+logo_image+' title="logo">';
-//   temp += '<p>'+restaurant_address+'</p>';
+function display_restaurant_data(){
+  let restaurant = restaurantMeta.find(el => el.name == curr_restaurant);
+  console.log(restaurant);
+  let temp = 'Welcome to '+unescape(restaurant.name);
+  temp += '<img id ="restaurant_logo" src='+restaurant.logo+' title="logo">';
+  temp += '<p>'+restaurant.address+'</p>';
+  temp += '<div id="ranking">'+restaurant.ranking+'</div>';
+  temp += '<div id="delivery_time">'+restaurant.time+'</div>';
 
-//   let menu_buttons = '<div id="menu_buttons">';
-//   menu_buttons += '<button type="submit" class="menu_button" id="cancel">Cancel</button>';
-//   menu_buttons += '<button type="submit" class="menu_button" id="order_here">Order Here</button>';
-//   menu_buttons += '</div>';
-//   return temp+menu_buttons;
-// }
+  let menu_buttons = '<div id="menu_buttons">';
+  menu_buttons += '<button type="submit" class="menu_button" id="cancel" style="border-radius: 0 15px 0 0" onclick="close_modal()">Cancel</button>';
+  menu_buttons += '<button type="submit" class="menu_button" id="order_here" style="border-radius: 15px 0 0 0" onclick="display_restaurant_menu()">Order Here</button>';
+  menu_buttons += '</div>';
+  return temp+menu_buttons;
+}
 
 function restaurant_menu(){
   let menu = restaurant_menus[curr_restaurant];
