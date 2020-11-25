@@ -84,7 +84,7 @@ function menu_item_data(item_id){
   
   let menu_buttons = '<div id="menu_buttons">';
   menu_buttons += '<button type="button" class="menu_button" style="border-radius: 0 15px 15px 0" id="cancel_add" onclick="display_restaurant_menu()">Cancel</button>';
-  menu_buttons += '<button id="count_up" onclick="edit_count(1)">+</button><p id="count">'+curr_count+'</p><button id="count_down" onclick="edit_count(-1)">-</button>';
+  menu_buttons += '<button id="count_down" onclick="edit_count(-1)">-</button><p id="count">'+curr_count+'</p><button id="count_up" onclick="edit_count(1)">+</button>';
   menu_buttons += '<button type="submit" class="menu_button" style="border-radius: 15px 0 0 15px" id="add_to_cart">Add To Cart</button>';
   menu_buttons += '</div>';
   return temp+menu_buttons;
@@ -158,7 +158,7 @@ function menu_item_edit(cart_item){
   
   let menu_buttons = '<div id="menu_buttons">';
   menu_buttons += '<button type="button" class="menu_button" style="border-radius: 0 15px 15px 0" id="cancel_edit">Cancel</button>';
-  menu_buttons += '<button id="count_up" onclick="edit_count(1)">+</button><p id="count">'+curr_count+'</p><button id="count_down" onclick="edit_count(-1)">-</button>';
+  menu_buttons += '<button id="count_down" onclick="edit_count(-1)">-</button><p id="count">'+curr_count+'</p><button id="count_up" onclick="edit_count(1)">+</button>';
   menu_buttons += '<button type="submit" class="menu_button" style="border-radius: 15px 0 0 15px" id="edit_cart">Edit Item</button>';
   menu_buttons += '</div>';
   return temp+menu_buttons;
@@ -166,11 +166,11 @@ function menu_item_edit(cart_item){
 
 function display_restaurant_data(){
   let restaurant = restaurantMeta.find(el => el.name == curr_restaurant);
-  let temp = 'Welcome to '+unescape(restaurant.name);
+  let temp = '<div class="restaurant_data"><h1 id="welcome">Welcome to '+unescape(restaurant.name)+'</h1>';
   temp += '<img id ="restaurant_logo" src='+restaurant.logo+' title="logo">';
   temp += '<p>'+restaurant.address+'</p>';
-  temp += '<div id="ranking">'+restaurant.ranking+'</div>';
-  temp += '<div id="delivery_time">'+restaurant.time+'</div>';
+  temp += '<div id="ranking"> Rating: '+restaurant.ranking+'</div>';
+  temp += '<div id="delivery_time"> Delivery Time: '+restaurant.time+' minutes </div></div>';
 
   let menu_buttons = '<div id="menu_buttons">';
   menu_buttons += '<button type="submit" class="menu_button" id="cancel" style="border-radius: 0 15px 15px 0" onclick="close_modal()">Cancel</button>';
@@ -347,7 +347,8 @@ window.onload = function(){
 
   window.onclick = function (event) {
     if (event.target == modal) {
-      modal.style.display = "none";
+      //modal.style.display = "none";
+      cancel_order();
     }else if (event.target.id == "checkout"){
       modal_data.innerHTML = display_cart();
     }else if (event.target.id == "add_to_cart") {
