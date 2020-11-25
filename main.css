@@ -168,8 +168,20 @@ button {
 
 /* Restaurant Bubble */
 #restaurant_logo {
-  height: 100px;
-  width: 100px;
+  height: 200px;
+  width: 200px;
+}
+
+.restaurant_data{
+  padding-top: 50px;
+  text-align: center;
+  width: 99%;
+  height: 79%;
+  overflow-y: scroll;
+}
+
+#welcome{
+  font-size: 30px;
 }
 /* Restaurant Main Page End */
 
