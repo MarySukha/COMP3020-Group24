@@ -19,6 +19,7 @@ let restaurantMeta = [
     name: "Boston Pizza",
     logo: './static/logos/boston_pizza.png',
     ranking: 8.9,
+    address: "2 Pizza Drive",
     time: 72,
     tags: ['boston pizza']
   },
