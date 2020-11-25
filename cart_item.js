@@ -12,17 +12,26 @@ class Item {
 }
 
 function addItem(name, price, custom){
-  let totalPrice = Number(price);
+  let basePrice = Number(price);
+  let addOns = Number(0);
   for(let i in cart){
     if (cart[i].name === name && (JSON.stringify(cart[i].custom)==JSON.stringify(custom))){
       cart[i].count += curr_count;
       return;
     }
   }
-  for(let i in custom){ totalPrice += (+custom[i].price);}
+  for(let i in custom){
+    if(custom[i].type == "multi"){
+      addOns += Number(custom[i].price);
+    }else if(custom[i].type == "single" && Number(custom[i].price) > 0){
+      basePrice = Number(custom[i].price);
+    }
+  }
+  let totalPrice = Number(basePrice+addOns);
   let item = new Item(name, totalPrice.toFixed(2), curr_count, custom, id_var++);
   cart.push(item);
   curr_count = 1;
+  console.log(cart);
   if(curr_item.id != null){
     modal_data.innerHTML = display_cart();
     curr_item = {};
@@ -79,20 +88,23 @@ $("#add_to_cart").live("click", function () {
   let custom = [];
   $("input:checkbox:checked").each(function () {
       custom.push({
+        type: "multi",
         name: $(this).attr("id"),
         value: $(this).val(),
-        price: $(this).attr("price")
+        price: $(this).attr("price"),
       });
   });
   $("input:radio:checked").each(function () {
     custom.push({
+      type: "single",
       name: $(this).attr("id"),
       value: $(this).val(),
-      price: $(this).attr("price")
+      price: $(this).attr("price"),
     });
   });
   if($("textarea").val()){ custom.push({ name: "comment", value: $("textarea").val(), price: 0 })};
   addItem(item_name, item_price, custom);
+  console.log(custom)
 });
 
 $("#edit_cart").live("click", function () {
@@ -110,7 +122,7 @@ $("#edit_cart").live("click", function () {
     custom.push({
       name: $(this).attr("id"),
       value: $(this).val(),
-      price: $(this).attr("price")
+      price: $(this).attr("price"),
     });
   });
   if($("textarea").val()){ custom.push({ name: "comment", value: $("textarea").val(), price: 0 })};

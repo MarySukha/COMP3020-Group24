@@ -46,7 +46,11 @@ function menu_item_data(item_id){
     item.custom.single.forEach(category => {
       temp += '<hr>'+category.name+'<hr><div id="'+category.name+'">';
       category.options.forEach(option => {
-        temp += '<input type="radio" id="'+option.name+'" name='+category.name+' value="'+option.value+'" price='+option.price+' checked="checked">';
+        if(option.price == item.price || option.price == 0){
+          temp += '<input type="radio" id="'+option.name+'" name='+category.name+' value="'+option.value+'" price='+option.price+' checked="checked">';
+        }else{
+          temp += '<input type="radio" id="'+option.name+'" name='+category.name+' value="'+option.value+'" price='+option.price+'>';
+        }
         if(!option.price){
           temp += '<label for='+option.name+'>'+option.value+'</label><br/>';
         }
@@ -106,7 +110,12 @@ function menu_item_edit(cart_item){
     item.custom.single.forEach(category => {
       temp += '<hr>'+category.name+'<hr><div id="'+category.name+'">';
       category.options.forEach(option => {
-        temp += '<input type="radio" id="'+option.name+'" name='+category.name+' value="'+option.value+'" price='+option.price+' checked="checked">';
+        let checked = cart_item.custom.find(el => el.name == option.name);
+        if(checked){
+          temp += '<input type="radio" id="'+option.name+'" name='+category.name+' value="'+option.value+'" price='+option.price+' checked="checked">';
+        }else{
+          temp += '<input type="radio" id="'+option.name+'" name='+category.name+' value="'+option.value+'" price='+option.price+'>';
+        }
         if(!option.price){
           temp += '<label for='+option.name+'>'+option.value+'</label><br/>';
         }
@@ -121,7 +130,12 @@ function menu_item_edit(cart_item){
     item.custom.multi.forEach(category => {
       temp += '<hr>'+category.name+'<hr><div id="'+category.name+'">';
       category.options.forEach(option => {
-        temp += '<input type="checkbox" id="'+option.name+'"name='+category.name+' value="'+option.value+'" price='+option.price+'>';
+        let checked = cart_item.custom.find(el => el.name == option.name);
+        if(checked){
+          temp += '<input type="checkbox" id="'+option.name+'"name='+category.name+' value="'+option.value+'" price='+option.price+' checked="checked">';
+        }else{
+          temp += '<input type="checkbox" id="'+option.name+'"name='+category.name+' value="'+option.value+'" price='+option.price+'>';
+        }
         if(!option.price){
           temp += '<label for='+option.name+'>'+option.value+'</label><br/>';
         }
@@ -152,7 +166,6 @@ function menu_item_edit(cart_item){
 
 function display_restaurant_data(){
   let restaurant = restaurantMeta.find(el => el.name == curr_restaurant);
-  console.log(restaurant);
   let temp = 'Welcome to '+unescape(restaurant.name);
   temp += '<img id ="restaurant_logo" src='+restaurant.logo+' title="logo">';
   temp += '<p>'+restaurant.address+'</p>';
@@ -207,7 +220,6 @@ function display_cart(){
     temp += '<div  onclick="item_edit(\''+item.id+'\')" class="caption"><b>'+item.name+' $'+item_data.price+'</b></div>';
     temp += '<div  onclick="item_edit(\''+item.id+'\')" class="custom">';
     if(item.custom){
-      console.log(item);
       item.custom.forEach(custom =>{
         temp += '<li>'+custom.value;
         if(custom.price != 0){temp +=' $'+custom.price;}
