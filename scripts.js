@@ -269,7 +269,7 @@ function balloon_btn(restaurantLogo) {
     let size = 96;
     if((i+1)%2){temp += '<div class="first_row">';}
     else {temp += '<div class="second_row">';}
-    temp += '<div class="balloon" onclick="balloon_click(\''+rLogo.name+'\')" id="'+rLogo.name+'" style="--left: '+positionX+'px; --opacity: 0; --size: 80px;">';
+    temp += '<div class="balloon" onclick="balloon_click(\''+rLogo.name+'\')" id="'+rLogo.name+'" style="--left: '+positionX+'px; --opacity: 0; --size: 95px;">';
     positionX += 75;
     temp += '<a href="#modal_data" class="balloon_individual">';
     temp += '<img class="balloon_logo" id="'+rLogo.name+'"src='+rLogo.logo+' alt="balloon_logo" style="width:'+size+'px;height:'+size+'px;"></a>';

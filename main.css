@@ -342,16 +342,17 @@ input[type="checkbox"]{
 /*balloon*/
 .balloon 
 {
-  height: calc(1.2 * var(--size));
+  --hue: transparent;
+  height: calc(var(--size));
   width: var(--size);
   background: hsla(var(--hue), 100%, 50%, 0.8);
-  border-radius: 50% 50% 50% 50% / 45% 45% 55% 55%;
+  border-radius: 50%;
   position: absolute;
   top: 15%;
   left:var(--left, 50%);
 }
 .balloon:hover{
-  box-shadow: 10px 5px 15px #8c1119;
+  box-shadow: 5px 5px 10px #8c1119;
 }
 /*light*/
 .balloon:before 
@@ -373,7 +374,7 @@ input[type="checkbox"]{
   width: 2%;
   background:#8c1119;
   top: 100%;
-  left: 60%;
+  left: 50%;
   /* transform: translate(-50%, 0); */
   position: absolute;
 }
