@@ -169,8 +169,9 @@ function display_restaurant_data(){
   let temp = '<div class="restaurant_data"><h1 id="welcome">Welcome to '+unescape(restaurant.name)+'</h1>';
   temp += '<img id ="restaurant_logo" src='+restaurant.logo+' title="logo">';
   temp += '<p>'+restaurant.address+'</p>';
-  temp += '<div id="ranking"> Rating: '+restaurant.ranking+'</div>';
-  temp += '<div id="delivery_time"> Delivery Time: '+restaurant.time+' minutes </div></div>';
+  temp += '<div id="ranking"> Rating: '+restaurant.ranking;
+  temp += '<img src="./static/Gold_Star.png" id="rating_star"></div>';
+  temp += '<br><div id="delivery_time"> Delivery Time: '+restaurant.time+' minutes </div></div>';
 
   let menu_buttons = '<div id="menu_buttons">';
   menu_buttons += '<button type="submit" class="menu_button" id="cancel" style="border-radius: 0 15px 15px 0" onclick="close_modal()">Cancel</button>';
