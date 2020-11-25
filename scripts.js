@@ -190,7 +190,7 @@ function restaurant_menu(){
     menu_buttons += '</div>';
   
     return temp+menu_buttons;
-  }else{ return '<div>No mock data here, please try a different restaurant</div>'; }
+  }else{ return '<div>The resturant you are viewing is currently unavilable on Order Me Up, please try another resturant.</div>'; }
 }
 
 function display_cart(){
