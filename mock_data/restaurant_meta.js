@@ -5,7 +5,7 @@ let restaurantMeta = [
     time: 24,
     logo: "./static/logos/McDonalds_logo.png", 
     ranking: 9.6,
-    tags: ["burgers", "mcdonalds", "breakfast", "lunch", "ice cream", "coffee", "desserts", "fast food"]
+    tags: ["burgers", "mcdonalds", "breakfast", "lunch", "ice cream", "coffee", "desserts", "fast food", "fries"]
   }, 
   {
     name: "Pizza Hotline",
@@ -29,7 +29,7 @@ let restaurantMeta = [
     ranking: 8.8,
     address: "345 Fantasy Cres.",
     time: 45,
-    tags: ["burgers", "king", "breakfast", "lunch", "coffee", "desserts", "whopper", "fast food", "fries"]
+    tags: ["burger king", "burgers", "king", "breakfast", "lunch", "coffee", "desserts", "whopper", "fast food", "fries"]
   },
   {
     name: "Bento Sushi",
@@ -37,7 +37,7 @@ let restaurantMeta = [
     ranking: 9.8,
     address: "The local mall",
     time: 32,
-    tags: ["sushi", "vegetarian", "bento", "asian", "japanese"]
+    tags: ["vegetarian", "bento sushi", "asian", "japanese"]
   },
   { 
     name:"Wendy%27s", 
@@ -45,7 +45,7 @@ let restaurantMeta = [
     ranking: 8.6,
     address: "12 Wendy Ave.",
     time: 20,
-    tags: ["burgers", "wendy", "breakfast", "lunch", "ice cream", "coffee", "desserts"]
+    tags: ["burgers", "wendys", "breakfast", "lunch", "ice cream", "coffee", "desserts"]
   }, 
   { 
     name: "KFC", 
@@ -53,7 +53,7 @@ let restaurantMeta = [
     ranking: 8.2,
     address: "11 Kentucky-Spice Rd.",
     time: 42,
-    tags: ["chicken", "kentucky fried", "kfc", "breakfast", "lunch", "coffee"]
+    tags: ["kentucky fried chicken", "kfc", "breakfast", "lunch", "coffee"]
   },
   { 
     name: "Popeyes", 
@@ -69,7 +69,7 @@ let restaurantMeta = [
     ranking: 9.6,
     address: "789 St.Marys Ave",
     time: 22,
-    tags: ["burgers", "mary brown", "chicken", "lunch", "fies", "desserts"]
+    tags: ["burgers", "mary brown", "chicken", "lunch", "fries", "desserts"]
   },
   { 
     name:"A&W", 
