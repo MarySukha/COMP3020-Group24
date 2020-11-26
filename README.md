@@ -1,4 +1,12 @@
 # COMP3020-Group24
+
+Note that the address bar is not fully implemented - no constraints against invalid addresses or blank fields.
+Category tabs (burgers, desserts, etc.) are fully functional with our current restaurants. Bakery, and Greek tabs are purposely empty because we don't have sample restaurants in those categories.
+The search bar updates the restaurants as the user is typing, but the complete list of usable search terms is: "burgers", "mcdonalds", "breakfast", "lunch", "ice cream", "coffee", "desserts", "fast food", "pizza hotline", "boston pizza", "king", "whopper", "fast food", "fries", "burger king", "vegetarian", "bento sushi", "asian", "japanese", "wendys", "kentucky fried chicken", "kfc", "popeyes", "mary brown", "a w a&w", "5 five guys", "hot dogs", "sandwich", "bacon", "jollibee", "pasta"
+We only have sample data for 5/12 restaurants (McDonald's, Pizza Hotline, Boston Pizza, Burger King, and Bento Sushi). The other 7 have no menus, but still show up in the search results. The only items out of all of the menus that have customization options are: Egg McMuffin, Hamburger, World Famous Fries, Fruitopia Strawberry Passion (all from the McDonald's menu)
+Upon placing an order, a popup appears that says "Thanks!" - we purposely didn't implement a payment method, since it's standard across all ordering services.
+
+
 Images under Commons License retrieved from
 - https://commons.wikimedia.org/wiki/File:Shake_Shack_burger_and_fries_(14129412503).jpg
 - https://www.mcdonalds.com/is/image/content/dam/ca/nfl/web/nutrition/products/header/en/mcdonalds-sausage-n-egg-mcmuffin.jpg?$Product_Desktop$
