@@ -286,7 +286,7 @@ function selection_buttons() {
   let options = [
     "Burgers", "Desserts", "Pizza",
     "Sushi", "Coffee", "Breakfast", "Chicken", 
-    "Vegeterian", "Bakery", "Greek"
+    "Vegetarian", "Bakery", "Greek"
   ];
   let temp='';
   options.forEach(option=>{
