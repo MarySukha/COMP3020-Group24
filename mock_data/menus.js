@@ -242,7 +242,7 @@ let restaurant_menus = {
       name: "MEATY DELIGHT",
       price: "18.90",
       calories: 2350,
-      desc: "Genoa Salami, Ham, Dry-Cured Pepperoni, Traditional Italian Sausage, Seasoned Beef and Ground Bacon",
+      desc: "Genoa Salami, Ham, Dry-Cured Pepperoni, Traditional Italian Sausage, Seasoned Beef and Ground Bacon.",
       img: "./static/menu_pictures/MEATY_DELIGHT.png?",
       custom: {}
     },
@@ -250,7 +250,7 @@ let restaurant_menus = {
       name: "GARDEN VEGGIE",
       price: "15.00",
       calories: 1930,
-      desc: "Fresh Mushroom, Fresh Cut Onion, Kalamata Sliced Olive, Pineapple, Fresh Green Pepper and Fresh Tomato",
+      desc: "Fresh Mushroom, Fresh Cut Onion, Kalamata Sliced Olive, Pineapple, Fresh Green Pepper and Fresh Tomato.",
       img: "./static/menu_pictures/GARDEN_VEGGIE.png?",
       custom: {}
     }
@@ -261,7 +261,7 @@ let restaurant_menus = {
       name: "Pepperoni Cheese Sticks",
       price: "6.00",
       calories: 90,
-      desc: "Mouth watering cheesesticks with Garlic butter base loaded with 100% Real Cheese and then topped with Dry Cured Pepperoni slices",
+      desc: "Mouth watering cheesesticks with Garlic butter base loaded with 100% Real Cheese and then topped with Dry Cured Pepperoni slices.",
       img: "./static/menu_pictures/Pepperoni_Cheese_Sticks.png?",
       custom: {}
     },
@@ -269,7 +269,7 @@ let restaurant_menus = {
       name: "Taco Cheese Sticks",
       price: "6.00",
       calories: 120,
-      desc: "Mouth-watering cheese sticks with Garlic butter base loaded with Mozzarella Cheese and then topped with Sesoned Beef and Spicy Jalapeno slices",
+      desc: "Mouth-watering cheese sticks with Garlic butter base loaded with Mozzarella Cheese and then topped with Sesoned Beef and Spicy Jalapeno slices.",
       img: "./static/menu_pictures/Taco_Cheese_Sticks.png?",
       custom: {}
     },
@@ -287,7 +287,7 @@ let restaurant_menus = {
       name: "2L Pop",
       price: "2.99",
       calories: 800,
-      desc: "Pepsi, Diet Pepsi, 7Up, Dr Pepper, Ginger Ale, Orange Crush, Root Beer, or Iced Tea",
+      desc: "Pepsi, Diet Pepsi, 7Up, Dr Pepper, Ginger Ale, Orange Crush, Root Beer, or Iced Tea.",
       img: "./static/menu_pictures/2L_Pop.png?",
       custom: {}
     },
@@ -442,7 +442,7 @@ let restaurant_menus = {
       name: "APPLE BLOSSOM",
       price: "6.99",
       calories: 300,
-      desc: "Freshly baked Canadian Northern Spy apples in a flaky pastry shell. Served with vanilla ice cream and drizzled with caramel sauce",
+      desc: "Freshly baked Canadian Northern Spy apples in a flaky pastry shell. Served with vanilla ice cream and drizzled with caramel sauce.",
       img: "./static/menu_pictures/APPLE_BLOSSOM.png?",
       custom: {}
     },
@@ -450,7 +450,7 @@ let restaurant_menus = {
       name: "NEW YORK CHEESECAKE",
       price: "7.99",
       calories: 400,
-      desc: "Traditional New York-style cheesecake with a graham cracker crust",
+      desc: "Traditional New York-style cheesecake with a graham cracker crust.",
       img: "./static/menu_pictures/NEW_YORK_CHEESECAKE.png?",
       custom: {}
     },
